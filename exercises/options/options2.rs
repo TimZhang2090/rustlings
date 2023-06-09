@@ -28,8 +28,10 @@ mod tests {
         // TODO: make this a while let statement - remember that vector.pop also adds another layer of Option<T>
         // You can stack `Option<T>`s into while let and if let
         while let Some(integer) = optional_integers.pop() {
-            assert_eq!(integer.unwrap(), cursor);
-            cursor -= 1;
+            if let Some(val) = integer {
+                assert_eq!(val, cursor);
+                cursor -= 1;
+            }
         }
 
         assert_eq!(cursor, 0);
