@@ -1,19 +1,37 @@
 // iterators4.rs
 // Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
+
+// Complete this function to return the factorial of num
+// Do not use:
+// - return
+// Try not to use:
+// - imperative style loops (for, while)
+// - additional variables
+// For an extra challenge, don't use:
+// - recursion
+// Execute `rustlings hint iterators4` for hints.
+// pub fn factorial(num: u64) -> u64 {
+//     if num <= 1 {
+//         1
+//     } else {
+//         num * factorial(num - 1)
+//     }
+// }
+
+// 尾调用优化
+// pub fn factorial_tail(num: u64, total: u64) -> u64 {
+//     if num <= 1 {
+//         total
+//     } else {
+//         factorial_tail(num - 1, num * total)
+//     }
+// }
 
 pub fn factorial(num: u64) -> u64 {
-    // Complete this function to return the factorial of num
-    // Do not use:
-    // - return
-    // Try not to use:
-    // - imperative style loops (for, while)
-    // - additional variables
-    // For an extra challenge, don't use:
-    // - recursion
-    // Execute `rustlings hint iterators4` for hints.
+    (1..=num).product()
 }
+
 
 #[cfg(test)]
 mod tests {
